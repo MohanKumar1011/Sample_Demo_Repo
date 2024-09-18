@@ -1,0 +1,43 @@
+﻿@model MailSending.Models.EmailModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ <form method="post" asp-controller="Home" asp-action="Index" enctype="multipart/form-data">
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 80px">To:</td>
+                <td><input type="text" asp-for="To" /></td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td><input type="text" asp-for="Subject" /></td>
+            </tr>
+            <tr>
+                <td valign="top">Body:</td>
+                <td><textarea cols="20" rows="3" asp-for="Body"></textarea></td>
+            </tr>
+            <tr>
+                <td>File Attachment:</td>
+                <td><input type="file" asp-for="Attachment" /></td>
+            </tr>
+            <tr>
+                <td>Gmail Email:</td>
+                <td><input type="text" asp-for="Email" /></td>
+            </tr>
+            <tr>
+                <td>Gmail Password:</td>
+                <td><input type="password" asp-for="Password" /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Send" /></td>
+            </tr>
+        </table>
+        <br/>
+        <span style="color:green">@ViewBag.Message</span>
+    </form>
